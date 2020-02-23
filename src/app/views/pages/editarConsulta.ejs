@@ -1,0 +1,99 @@
+
+
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+    <link rel="stylesheet" type="text/css" href="/css/style.css" />
+</head>
+
+<body>
+    <main>
+      <%- include("partials/navbar")  %>
+
+        <div class="container-fluid bg-primary">
+
+            <div class="container bg-white">
+
+                <div class="row">
+
+                    <div class="col-sm-12 mt-4">
+                        <div class="jumbotron text-center mx-auto">
+                            <h1 class="text-center mb-5">Editar Consulta</h1>
+                            <div class="col-6 mx-auto">
+
+                                <img src="/img/cadastro.svg" width="100%">
+                            </div>
+                            <% const { codigo, data, hora, paciente, medico, especialidade } = consulta %>
+                            <form class="form mt-5" action="/consultas/editar" method="POST">
+                              <div class="form-row">
+                                  <div class="form-group mx-3">
+                                      <label><b>ID da Consulta</b></label>
+                                      <input class="form-control" type="text" value="<%- codigo %>" id="codigo" name="codigo" placeholder="ID" readonly>
+                                  </div>
+                                  <div class="form-group mx-3">
+                                      <label><b>Data</b></label>
+                                      <input class="form-control" type="date" value="<%- data %>" id="data" name="data" placeholder="Data da Consulta"
+                                          required>
+                                  </div>
+                                  <div class="form-group mx-3">
+                                      <label><b>Hora</b></label>
+                                      <input class="form-control" type="time" value="<%- hora %>" id="hora" name="hora" placeholder="Hora da Consulta"
+                                          required>
+                                  </div>
+                                  <div class="form-group mx-3">
+                                      <label><b>Paciente</b></label>
+                                      <input class="form-control" type="text" value="<%- paciente %>" id="paciente" name="paciente"
+                                          placeholder="Nome do Paciente" required>
+                                  </div>
+                                  <div class="form-group mx-3">
+                                      <label><b>Médico</b></label>
+                                      <input class="form-control" type="text" value="<%- medico %>" id="medico" name="medico" placeholder="Nome do Médico"
+                                          required>
+                                  </div>
+                                  <div class="form-group mx-3">
+                                      <label><b>Especialidade</b></label>
+                                      <input class="form-control" type="text" value="<%- especialidade %>" id="especialidade" name="especialidade"
+                                          placeholder="Especialidade do Médico" required>
+                                  </div>
+                              </div>
+                              <button type="submit" class="btn btn-warning shadow mt-3 mx-2">Editar Consulta</button>
+                              <a class="btn btn-danger shadow mt-3 mx-2" href="/consultas/deletar/<%= codigo %>">Desmarcar</a>
+                              <a class="btn btn-primary shadow mt-3 mx-2" href="/consultas">Ver Consultas Marcadas</a>
+                          </form>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+
+
+        </div>
+        <%- include("partials/footer")  %>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
